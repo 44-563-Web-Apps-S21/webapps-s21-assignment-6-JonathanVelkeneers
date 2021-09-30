@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hidden things</title>
+</head>
+<body>
+<h1>Hidden things by Jonathan</h1>
+<h2>Getting input</h2>
+
+<form>
+    <label for="secret">Enter the secret word: </label>
+    <input type="password" id="secret" name="secret" value="Secret"> <br>
+
+    <label for="guess">Enter a guess: </label>
+    <input type="text" id="guess" name="guess" autofocus> <br>
+
+    <input type="button" onclick="processGuess()" value="Check the guess">
+</form>
+
+<p id="result">This text will be replaced </p>
+
+<script>
+    let correct = 0
+    let wrong = 0
+    function processGuess() {
+        let secret = document.querySelector("#secret").value
+        let guess = document.querySelector("#guess").value
+        let out = document.querySelector("#result")
+
+        if (secret === guess) {
+            alert("Congratulations")
+            correct++
+        } else {
+            alert("Sorry")
+            wrong++
+        }
+        out.innerHTML = `${correct} guesses right, ${wrong} guesses wrong`
+    }
+</script>
+
+</body>
+</html> 

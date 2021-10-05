@@ -19,9 +19,17 @@
 
 <p id="result">This text will be replaced </p>
 
+<div>
+    <img src="images/orca.jpg" alt="Image of an orca" width="200" height="200" onclick="newImage()">
+</div>
+
+
 <script>
     let correct = 0
     let wrong = 0
+    let usingImage = 1
+    let images = ["elephant.jpeg", "orca,jpg", "newt.jpg"]
+
     function processPhrase() {
         let secret = document.querySelector("#secret").value
         let guess = document.querySelector("#phrase").value
@@ -36,7 +44,21 @@
         }
         out.innerHTML = `${correct} guesses right, ${wrong} guesses wrong`
     }
-</script>
 
+    function newImage() {
+        let imageElem = document.querySelector("div img");
+        switch (usingImage) {
+            case 0:
+                imageElem.src = "images/orca.jpg"
+                break
+            case 1:
+                imageElem.src = "images/newt.jpg"
+                break
+            case 2:
+                imageElem.src = "images/elephant.jpeg"
+        }
+        usingImage = (usingImage + 1) % 3
+    }
+</script>
 </body>
 </html> 

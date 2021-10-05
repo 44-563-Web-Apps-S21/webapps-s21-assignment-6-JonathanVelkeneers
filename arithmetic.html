@@ -17,6 +17,23 @@
     <input type="button" onclick="powers()" value="Compute">
 </form>
 <p id="result">This text will be replaced </p>
+<br>
+
+<form>
+    <input type="radio" id="plus" name="calc" value="plus" onclick="processRadio(this)">
+    <label for="plus">+</label><br>
+
+    <input type="radio" id="minus" name="calc" value="minus" onclick="processRadio(this)">
+    <label for="minus">-</label><br>
+
+    <input type="radio" id="times" name="calc" value="times" onclick="processRadio(this)">
+    <label for="times">*</label><br>
+
+    <input type="radio" id="divide" name="calc" value="divide" onclick="processRadio(this)">
+    <label for="divide">/</label><br>
+</form>
+<p id="result2">This text will be replaced </p>
+
 <script>
     "use strict";
 
@@ -29,6 +46,28 @@
             result += " " + Math.pow(base, i)
         }
         document.querySelector("#result").innerHTML = `Powers of ${base} are: ${result}`
+    }
+
+    function processRadio(e) {
+        let base = parseInt(document.querySelector("#base").value)
+        let exponent = parseInt(document.querySelector("#exponent").value)
+        let method = e.value;
+        let result;
+        switch (method) {
+            case "plus":
+                result = base + exponent
+                break
+            case "minus":
+                result = base - exponent
+                break
+            case "times":
+                result = base * exponent
+                break
+            case "divide":
+                result = base / exponent
+                break
+        }
+        document.querySelector("#result2").innerHTML = `Result is: ${result}`
     }
 </script>
 

@@ -49,9 +49,7 @@
 
     function updateCar() {
         let property = document.querySelector("#property").value
-        let value = document.querySelector("#value").value
-        my_car[property] = value
-
+        my_car[property] = document.querySelector("#value").value
         document.querySelector("#result").innerHTML = JSON.stringify(my_car)
     }
 

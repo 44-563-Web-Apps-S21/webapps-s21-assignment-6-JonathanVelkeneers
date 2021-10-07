@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Car</title>
+</head>
+<body>
+<h1>Jonathan orders a car</h1>
+<h2>Getting input</h2>
+
+<form>
+    <label for="electric">Electric</label>
+    <input type="checkbox" id="electric" value="electric"> <br>
+
+    <label for="ac">Ac</label>
+    <input type="checkbox" id="ac" value="ac"> <br>
+
+    <label for="gps">Gps</label>
+    <input type="checkbox" id="gps" value="gps"> <br>
+
+    <input type="button" onclick="orderCar()" value="Order a car">
+</form>
+<p id="result">This text will be replaced </p>
+<script>
+    "use strict";
+    let my_car = {}
+
+    function orderCar() {
+        my_car = {}
+        let electric = document.querySelector("#electric")
+        let ac = document.querySelector("#ac")
+        let gps = document.querySelector("#gps")
+
+        my_car["electric"] = electric.checked
+        my_car["ac"] = ac.checked
+        my_car["gps"] = gps.checked
+
+        document.querySelector("#result").innerHTML = JSON.stringify(my_car)
+
+    }
+</script>
+
+</body>
+</html> 
